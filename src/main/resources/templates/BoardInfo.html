@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
+
+    <tr>
+        <td bgcolor="orange" th:text="제목" width="80"></td>
+        <td><input name="title" type="text" th:value="${board.title}"></td>
+    </tr>
+
+    <tr th:each="b:${boards}">
+        <td>
+            <a th:text="${b.getSeq()}">순서</a>
+        </td>
+        <td>
+            <a th:text="${b.getTitle()}" th:href=" @{/board/info/{seq}(seq = ${b.getSeq()})}">제목</a>
+        </td>
+        <td>
+            <a th:text="${b.writer}">글쓴이</a>
+        </td>
+        <td>
+            <a th:text="${b.getCreateDate()}">등록일</a>
+        </td>
+        <td>
+            <a th:text="${b.getCnt()}">조회수</a>
+        </td>
+    </tr>
+
+
+</table>
+
+</body>
+</html>
